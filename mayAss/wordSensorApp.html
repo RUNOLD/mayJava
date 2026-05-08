@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass UI Clone</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(
+        120deg,
+        #cfc6b3 0%,
+        #4d59c7 40%,
+        #5b1fa6 70%,
+        #c4835e 100%
+      );
+
+      overflow: hidden;
+    }
+
+    .container {
+      width: 780px;
+    }
+
+    .top-section {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+
+    #input-box {
+      flex: 1;
+      height: 72px;
+
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px);
+
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      padding: 0 30px;
+
+      font-size: 18px;
+      color: #555;
+
+      outline: none;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    #input-box::placeholder {
+      color: rgba(0, 0, 0, 0.45);
+      font-style: italic;
+    }
+
+    .send-btn {
+      width: 130px;
+      height: 72px;
+
+      border: none;
+      border-radius: 18px;
+
+      background: rgba(255, 255, 255, 0.82);
+
+      font-size: 17px;
+      font-weight: 600;
+      color: #111;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+      transition: 0.2s ease;
+    }
+
+    .send-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    #output-box {
+      width: 100%;
+      height: 250px;
+
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px);
+
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      padding: 42px;
+
+      color: rgba(0, 0, 0, 0.35);
+      font-size: 18px;
+      font-style: italic;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="top-section">
+      <input
+        type="text"
+        id="input-box"
+        placeholder="Enter your text here..."
+      />
+
+      <button class="send-btn" onclick="sendText()">
+        Send
+      </button>
+    </div>
+
+    <div id="output-box">
+      Your text will appear here...
+    </div>
+
+  </div>
+
+</body>
+<script>
+    let boxInput = document.getElementById("input-box");
+    let boxOutput = document.getElementById("output-box");
+    
+    function sendText() {
+        let text = boxInput.value.replace("shit" , "******").replace("fuck" , "******").replace("stupid" , "********").replace("foolish" , "********");
+        console.log(text);
+        // text.replace("shit" , "******")
+
+        boxOutput.innerHTML = text;
+        
+    }
+    
+</script>
+</html>
