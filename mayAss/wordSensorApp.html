@@ -144,9 +144,9 @@
     let boxOutput = document.getElementById("output-box");
     
     function sendText() {
-        let text = boxInput.value.replace("shit" , "******").replace("fuck" , "******").replace("stupid" , "********").replace("foolish" , "********");
+        let text = boxInput.value.toLowerCase().replaceAll("shit" , "******").replaceAll("fuck" , "******").replaceAll("stupid" , "********").replaceAll("foolish" , "********");
         console.log(text);
-        // text.replace("shit" , "******")
+        // text.replaceAll("shit" , "******")
 
         boxOutput.innerHTML = text;
         
