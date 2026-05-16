@@ -14,6 +14,23 @@
     
     let newClassWorkString = classWorkString.replace('yoU ' , 'you').replace('nEed' , 'need').replace('Eat' , 'eat')
     console.log(newClassWorkString);
+
+
+    //string interpolation
+
+    // i am a boy , i am 25 years old
+
+    let firstString = 'i am'
+    let secondString = 'a boy'
+    let thirdString = ' '
+    let formerAge = 20
+    let addedYears = 5
+    let forthString = 'years old.'
+    let fifthString = ','
+    // the string formed from interpolation is called template literal / template string
+    let sentence2 = `${firstString} ${secondString} ${fifthString} ${firstString} ${formerAge + addedYears} ${forthString}`
+    console.log(sentence2);
+    
     
 </script>
 </html>

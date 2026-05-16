@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #img{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 100px;
+
+        }
+    </style>
+</head>
+<body>
+     <div id="cont">
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NzCb3d4t44Mlpae1M0IxXilIWIprc4pt2w&s" alt="">
+        <button id="togglOn" onclick="toggle()">toggle</button>
+     </div>
+
+        <!-- <img src="https://cdn.mos.cms.futurecdn.net/HaPnm6P7TZhPQGGUxtDjAg-600-80.jpg " alt=""> -->
+    <!-- <div id="cont">
+        <img id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NzCb3d4t44Mlpae1M0IxXilIWIprc4pt2w&s" alt="">
+        <button id="togglOn" onclick="toggle">toggle</button>
+
+        <!-- https://cdn.mos.cms.futurecdn.net/HaPnm6P7TZhPQGGUxtDjAg-600-80.jpg -->
+    </div> -->
+</body>
+<script>
+    // let container = document.getElementById('cont')
+    // let toggleON = document.getElementById('toggleON')
+    let img = document.getElementById('image')
+        img.style.width = '100px'
+        img.style.height = '100px'
+    function toggle() {
+        if (img.src === "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NzCb3d4t44Mlpae1M0IxXilIWIprc4pt2w&s"){
+            // console.log(true);
+            img.src = 'https://cdn.mos.cms.futurecdn.net/HaPnm6P7TZhPQGGUxtDjAg-600-80.jpg'
+
+        } else {
+            // console.log(false);
+            img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NzCb3d4t44Mlpae1M0IxXilIWIprc4pt2w&s'
+            // img.style.width = '100px'
+            // img.style.height = '100px'
+        }
+        
+    }
+</script>
+</html>
