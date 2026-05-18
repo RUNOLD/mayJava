@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="input">
+   <button onclick="ageCheck()">click</button>
+   <div id="result"></div> 
+</body>
+<script>
+    let input = document.getElementById("input")
+    let result = document.getElementById("result")
+   
+
+
+    function ageCheck() {
+         let age = input.value.trim()
+         let num = Number(age)
+        if (age === '') {
+            alert('input is mandatory')
+            result.innerHTML = ''
+        } else if (isNaN(age)) {
+            alert('value must be a number')
+            result.innerHTML = ''
+        } else if (num <= 0) {
+            alert('value must be greater than 0')
+            result.innerHTML = ''
+        } else if (!Number.isInteger(num)) {
+            alert('value must be a whole number')
+            result.innerHTML = ''
+        }
+        else{
+            if (num < 18) {
+            // console.log('you are lesser than 18');
+            let ageRemain = 18 - num
+            result.innerHTML =   `You are left with ${ageRemain} years to drive.` 
+            // console.log(ageRemain);  
+        } else{
+            // console.log('you are old enough to drive');
+            result.innerHTML = 'You are old enough to drive.'
+        }
+        }
+        
+    }
+</script>
+</html>

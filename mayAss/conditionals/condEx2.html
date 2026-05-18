@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="number" placeholder="myAge" id="myAge"> 
+   <input type="number" placeholder="yourAge" id="yourAge"> 
+   <button onclick="compareAge()">Click</button>
+   <div id="result"></div>
+</body>
+<script>
+    let myAge = document.getElementById("myAge")
+    let yourAge = document.getElementById("yourAge")
+    let result = document.getElementById("result")
+    function compareAge() {
+        if (myAge.value > yourAge.value) {
+            // console.log('you are older than me');
+            let a = parseInt(myAge.value) - parseInt(yourAge.value)
+            // console.log(`You are ${a} years older than me.`);
+            result.innerHTML = `I am ${a} years older than you.`
+            
+            
+        } else{
+            // console.log('I am older than you');
+            a = parseInt(yourAge.value) - parseInt(myAge.value)
+            // console.log(`I am ${a} years older than you.`)
+            result.innerHTML = `You are ${a} years older than me.`
+            
+            
+        }
+        
+    }
+
+</script>
+</html>
