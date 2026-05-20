@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <!-- function that returns rgb colors -->
+    <button onclick="changeColor()">Change</button>
+</body>
+<script>
+    // let body = document.getElementById('body')
+    function random() {
+        let num1 = Math.floor(Math.random() * 256)
+        let num2 = Math.floor(Math.random() * 256)
+        let num3 = Math.floor(Math.random() * 256)
+        // console.log(num1 , num2 , num3);
+
+        return `rgb(${num1} , ${num2} , ${num3})`
+        
+    }
+    random()
+    
+    function changeColor(params) {
+        document.body.style.background = random()
+    }
+
+    
+</script>
+</html>
