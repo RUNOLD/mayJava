@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #carousel {
+        position: relative;
+        width: 250px;
+        margin: 50px auto;
+      }
+
+      #carouselImage {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
+
+      #prev,
+      #next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+      }
+
+      #prev:hover,
+      #next:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      #prev {
+        left: 10px;
+      }
+
+      #next {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Carousel</h1>
+    <div id="carousel">
+      <img id="carouselImage" src="slide1.jpeg" alt="" />
+
+      <button id="prev" onclick="previousSlide()">⟨</button>
+      <button id="next" onclick="nextSlide()">⟩</button>
+    </div>
+    <script>
+      let carousel = document.getElementById("carouselImage");
+      let previous = document.getElementById("prev");
+      let next = document.getElementById("next");
+      let images = [
+        "slide1.jpeg",
+        "slide2.jpeg",
+        "slide3.jpeg",
+        "slide4.jpeg",
+        "slide5.jpeg",
+      ];
+      let currentIndex = 0;
+      function nextSlide() {
+        currentIndex++;
+
+        if (currentIndex >= images.length) {
+          currentIndex = 0;
+        }
+
+        carousel.src = images[currentIndex];
+      }
+      function previousSlide() {
+        currentIndex--;
+
+        if (currentIndex < 0) {
+          currentIndex = images.length - 1;
+        }
+
+        carousel.src = images[currentIndex];
+      }
+    </script>
+  </body>
+</html>
