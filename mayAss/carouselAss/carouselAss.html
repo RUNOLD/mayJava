@@ -5,18 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      #carousel {
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      #idCard {
+        width: 320px;
+        margin: 30px auto;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
         position: relative;
-        width: 250px;
-        margin: 50px auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      #companyLogo {
+        display: block;
+        width: 80px;
+        height: 80px;
+        margin: 15px auto 10px;
+        object-fit: contain;
+      }
+
+      #companyName {
+        text-align: center;
+        padding: 0 15px;
+        font-size: 1rem;
+        color: #222;
+      }
+
+      #imageContainer {
+        padding: 15px;
       }
 
       #carouselImage {
         width: 100%;
-        height: 400px;
+        height: 250px;
         object-fit: cover;
+        border-radius: 10px;
         display: block;
-        border-radius: 12px;
+      }
+
+      #staffDetails {
+        padding: 0 20px 15px;
+      }
+
+      #staffDetails p {
+        margin: 8px 0;
+        font-size: 0.95rem;
+      }
+
+      #footerText {
+        text-align: center;
+        background: #1e3a8a;
+        color: white;
+        padding: 12px;
+        margin: 0;
+        font-weight: bold;
       }
 
       #prev,
@@ -24,19 +74,14 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
         border: none;
         border-radius: 50%;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         background: rgba(0, 0, 0, 0.6);
         color: white;
-      }
-
-      #prev:hover,
-      #next:hover {
-        background: rgba(0, 0, 0, 0.8);
       }
 
       #prev {
@@ -46,36 +91,103 @@
       #next {
         right: 10px;
       }
+
+      #prev:hover,
+      #next:hover {
+        background: rgba(0, 0, 0, 0.85);
+      }
     </style>
   </head>
   <body>
-    <h1>Carousel</h1>
-    <div id="carousel">
-      <img id="carouselImage" src="slide1.jpeg" alt="" />
+    <h1>APMS ID Card Carousel</h1>
+
+    <div id="idCard">
+      <img id="companyLogo" src="ayoola logo.PNG" alt="Company Logo" />
+
+      <h3 id="companyName">Ayoola Property Management & Sourcing Services</h3>
+
+      <div id="imageContainer">
+        <img id="carouselImage" src="slide1.jpeg" alt="Staff Image" />
+      </div>
+
+      <div id="staffDetails">
+        <p>
+          <strong>Name:</strong> <span id="staffName"> Ayoola Abdulmuiz </span>
+        </p>
+        <p>
+          <strong>Department:</strong>
+          <span id="staffDepartment">Software Development</span>
+        </p>
+        <p><strong>ID Number:</strong> <span id="staffId">00004</span></p>
+      </div>
+
+      <p id="footerText">Property of APMs</p>
 
       <button id="prev" onclick="previousSlide()">⟨</button>
       <button id="next" onclick="nextSlide()">⟩</button>
     </div>
     <script>
       let carousel = document.getElementById("carouselImage");
-      let previous = document.getElementById("prev");
-      let next = document.getElementById("next");
+      let Name = document.getElementById("staffName");
+      let department = document.getElementById("staffDepartment");
+      let idNum = document.getElementById("staffId");
       let images = [
-        "slide1.jpeg",
-        "slide2.jpeg",
-        "slide3.jpeg",
-        "slide4.jpeg",
-        "slide5.jpeg",
+        {
+          image: "slide1.jpeg",
+          name: "Ayoola Abdulmuiz",
+          department: "Software Development",
+          id: "00004",
+        },
+
+        {
+          image: "slide2.jpeg",
+          name: "Ayoola Mubarak",
+          department: "Cyber Security",
+          id: "00005",
+        },
+
+        {
+          image: "slide3.jpeg",
+          name: "Ayoola Morddiyyah",
+          department: "UI/UX Developer",
+          id: "00002",
+        },
+
+        {
+          image: "slide4.jpeg",
+          name: "Ayoola Runold",
+          department: "Data Analysis",
+          id: "00003",
+        },
+
+        {
+          image: "slide5.jpeg",
+          name: "Ayoola Ruu",
+          department: "Graphics Design",
+          id: "00001",
+        },
       ];
       let currentIndex = 0;
+      let student;
       function nextSlide() {
         currentIndex++;
 
         if (currentIndex >= images.length) {
           currentIndex = 0;
         }
+        // console.log(images[currentIndex])
+        student = images[currentIndex];
 
-        carousel.src = images[currentIndex];
+        carousel.src = student.image;
+        // console.log(images[0]['image']);
+        // console.log(student.image);
+
+        Name.innerHTML = student.name;
+        // Name.innerHTML = images[0]['name'];
+        department.innerHTML = student.department;
+        // department.innerHTML = images[0]['department'];
+        idNum.innerHTML = student.id;
+        // idNum.innerHTML = images[0]['id'];
       }
       function previousSlide() {
         currentIndex--;
@@ -84,7 +196,11 @@
           currentIndex = images.length - 1;
         }
 
-        carousel.src = images[currentIndex];
+        student = images[currentIndex];
+        carousel.src = student.image;
+        Name.innerHTML = student.name;
+        department.innerHTML = student.department;
+        idNum.innerHTML = student.id;
       }
     </script>
   </body>
